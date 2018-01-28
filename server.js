@@ -12,10 +12,10 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // connect to local database run pgstart psql \c book_app to connect locally
-const conString = 'postgres://localhost:5432/bookapp';
+// const conString = 'postgres://localhost:5432/bookapp';
 
 // connect to heroku db (comment out when testing locally)
-// const conString = process.env.DATABASE_URL;
+const conString = process.env.DATABASE_URL;
 
 // connect to our DB
 const client = new pg.Client(conString);
@@ -24,7 +24,17 @@ client.connect();
 
 //=================================================
 //middleware
+  //cors cross origin scripting
+app.use(cors());
 
+ // this tells bodyparser to use JSON into and outof database
+app.use(bodyParser.json());
+
+ // this enables bodyparser to parse nested objects
+app.use(bodyParser.urlencoded({ extended: true }));
+
+ // this is a test for communication to the server.
+app.get('/', (req, res) => { res.send('communication to server.js works'); });
 
 //=================================================
 //routes
