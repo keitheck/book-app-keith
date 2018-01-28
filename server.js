@@ -34,7 +34,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
  // this is a test for communication to the server.
-app.get('/', (req, res) => { res.send('communication to server.js works'); });
+app.get('/', (req, res) => { res.send('communication test to server.js works'); });
 
 //=================================================
 //routes
