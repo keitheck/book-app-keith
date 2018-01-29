@@ -42,7 +42,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
  app.get('/', (req, res) => { res.send('communication test to server.js works'); });
 
 //get book fields from db
-app.get('db/books', function(req, res) {
+app.get('/db/books', function(req, res) {
   client.query('SELECT * FROM books;')
   .then(function(data) {
     response.send(data);
