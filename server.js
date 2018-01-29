@@ -70,8 +70,8 @@ app.get('/db/books', function(req, res) {
     })
     .catch(function(err) {
       console.error('new book post error', err);
-    })
- }
+    });
+ });
 
 
 
