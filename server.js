@@ -25,7 +25,14 @@ client.connect();
 //=================================================
 //middleware
   //cors cross origin scripting
-app.use(cors());
+var corsOptions = {
+  origin: '*',
+  methods: GET,HEAD,PUT,PATCH,POST,DELETE,
+  preflightContinue: false,
+  optionsSuccessStatus: 204
+}
+
+app.use(cors(corsOptions));
 
  // this tells bodyparser to use JSON into and outof database
 app.use(bodyParser.json());
