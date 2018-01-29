@@ -9,7 +9,7 @@ const pg = require('pg');
 // BODY PARSER is middleware that allows parsing of incoming request bodies in middleware 
 const bodyParser = require('body-parser');
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 
 // connect to local database run pgstart psql \c book_app to connect locally
 // const conString = 'postgres://localhost:5432/bookapp';
@@ -53,7 +53,7 @@ app.get('/db/books', function(req, res) {
 });
 
  //new book form post route
- app.post('/db/books', function(req,res) {
+ app.post('/db/books', function(req, res) {
    client.query(`
       INSERT INTO books(author, title, isbn, image_url, description)
       VALUES($1, $2, $3, $4, $5);`,
